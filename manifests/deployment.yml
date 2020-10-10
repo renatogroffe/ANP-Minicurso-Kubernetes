@@ -1,0 +1,32 @@
+apiVersion : apps/v1
+kind: Deployment
+metadata:
+  name: sitecontagem 
+spec:
+  replicas: 4
+  selector:
+    matchLabels:
+      app: sitecontagem
+  template:
+    metadata:
+      labels:
+        app: sitecontagem
+    spec:
+      containers:
+        - name: sitecontagem
+          image: azurenapratica/siteminicursok8s:1.0
+          env:
+            - name: MensagemVariavel
+              value: Deployment no AKS
+            - name: ApplicationInsights__InstrumentationKey
+              valueFrom:
+                secretKeyRef:
+                  name: secrets-sitecontagem
+                  key: ChaveApplicationInsights
+            - name: ConnectionStrings__AppConfiguration
+              valueFrom:
+                secretKeyRef:
+                  name: secrets-sitecontagem
+                  key: ConexaoAppConfiguration
+          ports:
+            - containerPort: 80

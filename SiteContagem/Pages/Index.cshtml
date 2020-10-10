@@ -1,0 +1,22 @@
+﻿@page
+@model IndexModel
+@{
+    ViewData["Title"] = "Home page";
+}
+
+<div class="text-center">
+    <h1 class="display-4">@TempData["Saudacao"]</h1>
+    <p><b>Contador - Valor atual:</b> @TempData["Contador"]</p>
+    <p><b>Local (Máquina | Container | Pod):</b> @TempData["Local"]</p>
+    <p><b>Kernel:</b> @TempData["Kernel"]</p>
+    <p><b>Target Framework:</b> @TempData["TargetFramework"]</p>
+    <p><b>Mensagem Fixa:</b> @TempData["MensagemFixa"]</p>
+    <p><b>Mensagem Variável:</b> @TempData["MensagemVariavel"]</p>
+    <p><a href="@TempData["UrlMinicursoKubernetes"]" target="_blank">Certificado Minicurso Kubernetes</a> | 
+       <a href="@TempData["UrlMinicursoBDs"]" target="_blank">Minicurso Bancos de Dados |
+       <a href="@TempData["UrlMinicursoDocker"]" target="_blank">Iniciando com Docker</a> |
+       <a href="@TempData["UrlMinicursoAzureDevOps"]" target="_blank">Iniciando com Azure DevOps</a> |
+       <a href="@TempData["UrlMinicursoInfra"]" target="_blank">Iniciando com Infraestrutura na Nuvem</a> |
+       <a href="@TempData["UrlBrindesMicrosoft"]" target="_blank">Brindes Microsoft</a> |
+       <a href="@TempData["UrlSorteio"]" target="_blank">Sorteio</a></p>
+</div>
